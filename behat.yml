@@ -12,7 +12,12 @@ default:
                 class: App\Kernel
         Behat\MinkExtension:
             base_url: http://phpunit-final.develop/
-            browser_name: 'firefox'
-            sessions:
-                my_session:
-                    selenium2: ~
+#            goutte: ~
+            default_session: selenium2
+#            javascript_session: selenium2
+            browser_name: 'chrome'
+            selenium2:
+                capabilities:
+                  "browserName": "chrome"
+                  "browser": "chrome"
+#                  "version":  "63"

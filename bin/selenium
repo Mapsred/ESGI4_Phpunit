@@ -1,0 +1,4 @@
+#!/usr/bin/env sh
+
+java -Dwebdriver.chrome.driver=bin/chromedriver.exe -jar bin/selenium-server-standalone-3.8.0.jar
+
