@@ -1,0 +1,7 @@
+### Composer template
+composer.phar
+/vendor/
+
+.idea
+bin/behat*
+/docker-compose.yml
