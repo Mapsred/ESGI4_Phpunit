@@ -1,19 +1,5 @@
 version: "3.1"
 services:
-    mariadb:
-      image: mariadb:latest
-      container_name: phpunit-final-mariadb
-      working_dir: /application
-      volumes:
-        - .:/application
-      environment:
-        - MYSQL_ROOT_PASSWORD=root
-        - MYSQL_DATABASE=phpunit-final
-        - MYSQL_USER=phpunit-final
-        - MYSQL_PASSWORD=phpunit-final
-      ports:
-        - "8152:3306"
-
     webserver:
       image: nginx:stable
       container_name: phpunit-final-webserver
@@ -31,14 +17,3 @@ services:
       volumes:
         - .:/application
         - ./engine/php-fpm/php-ini-overrides.ini:/etc/php/7.1/fpm/conf.d/99-overrides.ini
-
-    phpmyadmin:
-      image: phpmyadmin/phpmyadmin
-      container_name: phpunit-final-phpmyadmin
-      links:
-        - mariadb:db
-      ports:
-        - "8252:80"
-      environment:
-        MYSQL_USERNAME: root
-        MYSQL_ROOT_PASSWORD: root

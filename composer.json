@@ -1,17 +1,65 @@
 {
-  "require": {
-    "behat/behat": "~2.5",
-    "behat/mink-extension": "~1.3",
-    "behat/mink-goutte-driver": "~1.2",
-    "behat/mink-selenium2-driver": "~1.2",
-    "fabpot/goutte": "1.*@stable"
-  },
-  "autoload": {
-    "psr-4": {
-      "": "src"
+    "type": "project",
+    "license": "proprietary",
+    "require": {
+        "php": "^7.1.3",
+        "ext-iconv": "*",
+        "symfony/console": "^4.0",
+        "symfony/flex": "^1.0",
+        "symfony/framework-bundle": "^4.0",
+        "symfony/lts": "^4@dev",
+        "symfony/yaml": "^4.0"
+    },
+    "require-dev": {
+        "behat/behat": "^3.4",
+        "behat/mink": "^1.7",
+        "behat/mink-browserkit-driver": "^1.3",
+        "behat/mink-extension": "^2.3",
+        "behat/mink-selenium2-driver": "^1.3",
+        "behat/symfony2-extension": "^2.1",
+        "symfony/dotenv": "^4.0"
+    },
+    "config": {
+        "preferred-install": {
+            "*": "dist"
+        },
+        "sort-packages": true
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "App\\Tests\\": "tests/"
+        }
+    },
+    "replace": {
+        "symfony/polyfill-iconv": "*",
+        "symfony/polyfill-php71": "*",
+        "symfony/polyfill-php70": "*",
+        "symfony/polyfill-php56": "*"
+    },
+    "scripts": {
+        "auto-scripts": {
+            "cache:clear": "symfony-cmd",
+            "assets:install --symlink --relative %PUBLIC_DIR%": "symfony-cmd"
+        },
+        "post-install-cmd": [
+            "@auto-scripts"
+        ],
+        "post-update-cmd": [
+            "@auto-scripts"
+        ]
+    },
+    "conflict": {
+        "symfony/symfony": "*"
+    },
+    "extra": {
+        "symfony": {
+            "id": "01C3X6EQ3JHFRE8XZA2X1QDNVC",
+            "allow-contrib": true
+        }
     }
-  },
-  "config": {
-    "bin-dir": "bin/"
-  }
 }
