@@ -34,8 +34,6 @@ class DefaultController extends Controller
     public function loginAction(Request $request)
     {
         if ($request->isMethod('POST')) {
-            $request->getSession()->set('auth', $request->request->get('username'));
-
             $isUsernamePasswordValid = $this->get(UserManager::class)->isUsernamePasswordValid(
                 $request->request->get('username'), $request->request->get('password')
             );
@@ -57,12 +55,11 @@ class DefaultController extends Controller
 
     /**
      * @Route("/content", name="content")
-     * @param Request $request
      * @return Response
      */
-    public function contentAction(Request $request)
+    public function contentAction()
     {
-        if (!$this->isAuthenticated($request)) {
+        if (!$this->isAuthenticated()) {
             throw new UnauthorizedHttpException("User not logged in");
         }
 
@@ -72,10 +69,10 @@ class DefaultController extends Controller
     }
 
     /**
-     * @param Request $request
+     * @return bool
      */
-    private function isAuthenticated(Request $request)
+    private function isAuthenticated()
     {
-        $request->getSession()->has('auth');
+        return $this->get(SessionManager::class)->isAuth();
     }
 }
