@@ -4,6 +4,7 @@
     <ul>
         <li>Bonjour {{ user.username }}</li>
         <li>Votre mot de passe est : {{ user.password }}</li>
+        <li><a href="{{ path("logout") }}" class="btn btn-danger">Se déconnecter</a></li>
     </ul>
 
 {% endblock %}

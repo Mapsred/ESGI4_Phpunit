@@ -69,6 +69,20 @@ class DefaultController extends Controller
     }
 
     /**
+     * @Route("/logout", name="logout")
+     */
+    public function logoutAction()
+    {
+        if (!$this->isAuthenticated()) {
+            throw new UnauthorizedHttpException("User not logged in");
+        }
+
+        $this->get(SessionManager::class)->unAuth();
+
+        return $this->redirectToRoute("homepage");
+    }
+
+    /**
      * @return bool
      */
     private function isAuthenticated()

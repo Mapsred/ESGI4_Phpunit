@@ -72,4 +72,12 @@ class SessionManager
 
         return $this;
     }
+
+    /**
+     * @return mixed
+     */
+    public function unAuth()
+    {
+        return $this->session->remove('auth');
+    }
 }
