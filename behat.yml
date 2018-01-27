@@ -11,7 +11,7 @@ default:
                 bootstrap: features/bootstrap/bootstrap.php
                 class: App\Kernel
         Behat\MinkExtension:
-            base_url: http://phpunit-final.develop/
+            base_url: http://127.0.1:8054
 #            goutte: ~
             default_session: selenium2
 #            javascript_session: selenium2
