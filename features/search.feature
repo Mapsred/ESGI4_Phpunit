@@ -5,7 +5,7 @@ Feature: Test
     Given I am on homepage
     Then I should see "Hello World"
 
-  Scenario: La page login affiche bien "Inscription"
+  Scenario: La page content est inaccessible
     Given I am on "/content"
     Then I should see "UnauthorizedHttpException"
 
@@ -13,7 +13,7 @@ Feature: Test
     Given I am on "/login"
     Then I should see "Inscription"
 
-  Scenario: La page login affiche bien "Inscription"
+  Scenario: Connexion invalide sur la page de login
     Given I am on "/login"
     When I fill in the following:
       | username | Toto |
@@ -21,7 +21,7 @@ Feature: Test
     And I press "Se connecter"
     Then I should see "Vos identifiants sont invalides"
 
-  Scenario: La page login affiche bien "Inscription"
+  Scenario: Connexion réussie sur la page de login
     Given I am on "/login"
     When I fill in the following:
       | username | Toto |
@@ -29,7 +29,8 @@ Feature: Test
     And I press "Se connecter"
     Then I should see "Vous êtes maintenant connectés"
 
-  Scenario: La page login affiche bien "Inscription"
+  @logged_in
+  Scenario: Affichage de la page "content"
     Given I am on "/content"
-    Then I should see "toto"
-    And I should see "1234"
+    Then the response should contain "Se déconnecter"
+    Then I should see "1234"
