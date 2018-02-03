@@ -1,5 +1,5 @@
-Feature: Test
-  Test de la page d'accueil qui est censée afficher "Hello World"
+Feature: Tests
+  Tests de la connexion de notre site
 
   Background:
     Given I am on homepage
@@ -38,4 +38,5 @@ Feature: Test
   Scenario: Affichage de la page "content"
     Given I am on "/content"
     Then the response should contain "Se déconnecter"
-    Then I should see "1234"
+    Then I should see "Toto"
+    And I should see "1234"
