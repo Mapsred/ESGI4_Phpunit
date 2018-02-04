@@ -1,5 +1,7 @@
 Feature: Tests
-  Tests de la connexion de notre site
+  Avant de continuer mon developpement
+  En tant que bon developpeur
+  Je réalise des tests de la connexion de notre site
 
   Background:
     Given I am on homepage
@@ -25,6 +27,7 @@ Feature: Tests
       | password | root |
     And I press "Se connecter"
     Then I should see "Vos identifiants sont invalides"
+    And I should not see "Vous êtes maintenant connectés"
 
   Scenario: Connexion réussie sur la page de login
     Given I am on "/login"
@@ -33,10 +36,4 @@ Feature: Tests
       | password | 1234 |
     And I press "Se connecter"
     Then I should see "Vous êtes maintenant connectés"
-
-  @logged_in
-  Scenario: Affichage de la page "content"
-    Given I am on "/content"
-    Then the response should contain "Se déconnecter"
-    Then I should see "Toto"
-    And I should see "1234"
+    And I should not see "Vos identifiants sont invalides"

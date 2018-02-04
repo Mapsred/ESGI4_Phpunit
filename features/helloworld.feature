@@ -1,5 +1,7 @@
 Feature: Hello World
-  Test de la page d'accueil qui est censée afficher "Hello World"
+  Avant de me lancer tout les tests
+  En tant que developpeur
+  Je test la page d'accueil qui est censée afficher "Hello World"
 
   Background:
     Given I am on homepage
