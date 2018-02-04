@@ -11,3 +11,8 @@ Feature: Hello World
   Scenario: La page d'accueil affiche bien "Hello World"
     Given I am on homepage
     Then I should see "Hello World"
+
+  Scenario: La page d'accueil affiche bien "Hello World"
+    Given I am on homepage
+    Then I should be on "/"
+    And I should not see "Coucou"

@@ -13,12 +13,22 @@ Feature: Tests
     Then I should see "Hello World"
 
   Scenario: La page content est inaccessible
-    Given I am on "/content"
+    Given I am on homepage
+    When I go to "/content"
     Then I should see "UnauthorizedHttpException"
 
   Scenario: La page login affiche bien "Inscription"
     Given I am on "/login"
     Then I should see "Inscription"
+
+  Scenario: Verification du nombre de div
+    Given I am on "/login"
+    Then I should see 4 "div" elements
+
+  Scenario: Retour au Hello World
+    Given I am on "/login"
+    When I follow "Retour au Hello World"
+    Then I should see "Hello World"
 
   Scenario: Connexion invalide sur la page de login
     Given I am on "/login"
