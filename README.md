@@ -29,7 +29,7 @@ And the behat tests : ``vendor/bin/behat --append-snippets``
 ## Explication
 
 ### Selenium
-Emulateur de navigateur
+Émulateur de navigateur
 
 ### Behat
 Framework de test
@@ -39,32 +39,34 @@ Lien de la documentation : http://behat.org/en/latest/quick_start.html
 ### Mink
 Extension de Behat.
 
-Plugin de navigateur pour effectuer les tests. (asset)
+Module pour effectuer les tests dans le navigateur. (assertions)
 
 ### Symfony dot env
-Emuler un serveur de test.
+Gère les paramètres du projet comme des variables d'environnement.
 
 ## Historique du projet
 
 ### composer.json 
-Utilisation de "Composer install" pour l'installation de Behat et Mink
+Utilisation de "composer install/require" pour l'installation de Behat et Mink
 
 ### behat.yml 
-Générer par Symfony lors de l'installation. 
+Fichier de configuration de behat (ici généré par Symfony Flex lors de l'installation). 
 
-Nous l'avons modifier pour l'adapter à nos besoins.
+Nous l'avons modifié pour l'adapter à nos besoins.
 
 ### chromedriver 
-Il fallait bien choisir un des navigateurs.
+Driver servant à émuler un navigateur Google Chrome avec Selenium afin de réaliser les tests.
 
-### Featurecontext 
-Ajout de l'extend Mink dans Featurecontext
+### FeatureContext 
+Context Behat auquel a été ajouté l'extension Mink.
 
 ### Ecriture des test dans les features
 Nous avons suivi le schéma du squelette fournis lors de l'installation.
 
-Nous avons créer plusieurs fichiers afin de séparer les tests et les rendre plus lisibles.
+Nous avons créé plusieurs fichiers afin de séparer les tests (features) et les rendre plus lisibles.
 
-### selenium-server-standalone
-Pour éviter d'écrire : 
-java -Dwebdriver.chrome.driver=bin/chromedriver.exe -jar bin/selenium-server-standalone-3.8.0.jar)
+### bin/selenium (sh file)
+Raccourci pour l'éxecution de selenium (*bin/selenium-server-standalone-3.8.0.jar*) avec le driver chrome (*bin/chromedriver.exe*)
+
+Commande entière présente dans le fichier :
+``java -Dwebdriver.chrome.driver=bin/chromedriver.exe -jar bin/selenium-server-standalone-3.8.0.jar)``
